@@ -47,6 +47,6 @@ alphanum ::= ALNUM | ALNUM alphanum
 text_field ::= TEXT | text_field TEXT  
 
 ### Requirements
-gcc  
-flex  
-bison  
+- gcc  
+- flex  
+- bison  
