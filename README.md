@@ -4,8 +4,8 @@ A "tweet" lexer/parser created as part of a university compiler class project. W
 -------------------
 
 ## General
-Goal of the assingment was to parse a text file with "tweets" and output them on the screen, along with proper error messages, or an OK message if both the structure and contents seem to be ok - though the content checks are not that strong, and mostly simply alphanumeric - or date/emptyness checks.
-A sample default 'input' file is provided, with a 'correct' entry, that's also read by default if no file is provided by the user on call.
+The goal of the assingment was to parse a text file with "tweets" and output the entries on the screen, along with proper error messages, or an OK message if both the structure and contents seem to be correct - though the content checks are not that strong, and mostly simply alphanumeric, or date/emptyness checks.  
+A sample default "input" file is provided, with a 'correct' entry, that's also read by default if no file is provided by the user on call.
 
 -------------------
 
@@ -46,7 +46,19 @@ list_items ::= value | list_items value
 alphanum ::= ALNUM | ALNUM alphanum  
 text_field ::= TEXT | text_field TEXT  
 
+### III.Example output
+- File with no errors
+![Alt text](/screeshots/correct.png?raw=true "correct")
+- Example file with lines randomly deleted
+![Alt text](/screeshots/err1.png?raw=true "correct")
+
 ### Requirements
 - gcc  
 - flex  
-- bison  
+- bison
+
+-------------------
+
+#### Course:
+University of Patras, Computer Engineering and Informatics Dept.
+Principles of Programming Languages and Compilers- 2019
