@@ -14,30 +14,30 @@ The lexer part, expects specific words or regular expressions and tokenizes the 
 The parser is a more generic json parser, with added checks and specific entries to ensure the structure validity of the "tweet". Can be made into a generic json parser with some light edits, mostly removing those specific checks.
 
 #### BNF Grammar
-<tweet_file> ::= <tweets>
-<tweets> ::= <tweet> | <tweet>
-<tweets> <tweet> ::= “{“ <body> “}”
+tweet_file ::= tweets
+tweets ::= tweet | tweet
+tweets tweet ::= “{“ body “}”
 
-<body> ::= <entry> | <body> <entry>
-<entry> ::= <created_e> | <id_string> | <text_e> | <user_entry> | <other_pair>
+body ::= entry | body entry
+entry ::= created_e | id_string | text_e | user_entry | other_pair
 
-<user_entry> ::= “{” <user_body> “}"
-<user_body>::= <user_item> | <user_body> <user_item>
-<user_item> ::= <id_entry> | <name_e> | <screen_name> | <location> | <other_pair>
+user_entry ::= “{” user_body “}"
+user_body::= user_item | user_body user_item
+user_item ::= id_entry | name_e | screen_name | location | other_pair
 
-<created_e> ::= <CREATED> <TEXT>
-<id_string> ::= <ID_ST> <ALNUM>
-<text_e> ::= <TXT> <TEXT>
-<id_entry> ::= <ID> <NUM>
-<name_e> ::= <NAME> <alphanum> <screen_name> ::=<SCREEN> <alphanum>
-<location> ::= <LOC> <alphanum>
+created_e ::= CREATED TEXT
+id_string ::= ID_ST ALNUM
+text_e ::= TXT TEXT
+id_entry ::= ID NUM
+name_e ::= NAME alphanum screen_name ::=SCREEN alphanum
+location ::= LOC alphanum
 
-<other_pair> ::= |<pair> | <other_pair> <pair>
-<pair> ::= <OTHER> <value>
-<value> ::= <text_field> | <object>| <list>
+other_pair ::= |pair | other_pair pair
+pair ::= OTHER value
+value ::= text_field | object| list
 
-<object> ::= “{“ “}” | “{” <other_pair> “}”
-<list> ::= “[“ “]” | “[“ <list_items> “]”
-<list_items> ::= <value> | <list_items> <value>
-<alphanum> ::= <ALNUM> | <ALNUM> <alphanum>
-<text_field> ::= <TEXT> | <text_field> <TEXT>
+object ::= “{“ “}” | “{” other_pair “}”
+list ::= “[“ “]” | “[“ list_items “]”
+list_items ::= value | list_items value
+alphanum ::= ALNUM | ALNUM alphanum
+text_field ::= TEXT | text_field TEXT
