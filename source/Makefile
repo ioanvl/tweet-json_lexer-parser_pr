@@ -10,14 +10,7 @@ lex.yy.c: tw_lex.l tw_lex.tab.h
 	flex tw_lex.l
 	
 clean:
-	rm tw_lex tw_lex.tab.c lex.yy.c tw_lex.tab.h
-
-ltest: tw_lex_test.l
-	flex tests/tw_lex_test.l
-	gcc -o test lex.yy.c
-
-test: flagtest.c
-	gcc -o test tests/flagtest.c
+	rm tw_lex.tab.c lex.yy.c tw_lex.tab.h
 
 exe: tw_lex.tab.c lex.yy.c tw_lex.tab.h
 	i686-w64-mingw32-gcc -o tw_lex.exe tw_lex.tab.c lex.yy.c
